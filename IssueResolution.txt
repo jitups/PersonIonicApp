@@ -1,0 +1,8 @@
+Issue 1.  " License for package Android SDK Platform 26 not accepted."
+Resolution: Run the command ->  C:\Program Files (x86)\Android\android-sdk\tools\bin>sdkmanager "build-tools;25.0.2"
+
+Issue 2: How to run the app?
+Resolution: ionic serve or ionic lab.
+
+Issue 3: How to create apk?
+Resolution: Run command -> ionic cordova build android
