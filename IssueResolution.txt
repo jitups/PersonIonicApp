@@ -6,3 +6,13 @@ Resolution: ionic serve or ionic lab.
 
 Issue 3: How to create apk?
 Resolution: Run command -> ionic cordova build android
+
+
+Follow these instruction to deploy this example:
+
+git clone https://github.com/Gajotres/IonicHTTPRestExample.git
+cd IonicHTTPRestExample
+ionic cordova platform add android
+npm install
+ionic serve -> To see if everything is working as it should
+ionic cordova run android -l -c -s
