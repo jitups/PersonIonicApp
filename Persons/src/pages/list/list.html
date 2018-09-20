@@ -8,7 +8,8 @@
 		<ion-item *ngFor="let person of movies">
 			<ion-icon name="person" item-left>
 			</ion-icon>
-			<p class="item-description">{{person.lastName}} {{person.firstName}} {{person.doB}}</p>
+			<p class="item-description"><b>{{person.firstName}} {{person.lastName}} </b></p>
+			<p class="item-description">{{ person.doB | date : format : timezone}}</p>
 		</ion-item>
 	</ion-list>	
 </ion-content>
