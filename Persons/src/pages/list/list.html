@@ -5,11 +5,12 @@
 </ion-header>
 <ion-content padding>
 	<ion-list>	
-		<ion-item *ngFor="let person of movies">
-			<ion-icon name="person" item-left>
+		<ion-item *ngFor="let movie of movies">
+			<ion-icon name="film" item-left>
 			</ion-icon>
-			<p class="item-description"><b>{{person.firstName}} {{person.lastName}} </b></p>
-			<p class="item-description">{{ person.doB | date : format : timezone}}</p>
+			<p class="item-description"><b>{{movie.title}} ({{movie.releaseDate | date : 'yyyy'}}) </b></p>
+			Imdb rating: {{movie.imdbRating}}<br/>
+			Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} 
 		</ion-item>
 	</ion-list>	
 </ion-content>

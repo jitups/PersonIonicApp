@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Persons</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <name>JMDB</name>
+    <description>Movies ratings by Js</description>
     <author email="jitusurve@gmail.com" href="mailto:jitusurve@gmail.com">Jitu Surve</author>
     <content src="index.html" />
     <access origin="*" />
@@ -21,12 +21,12 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/people-icon-32.png" />
-        <icon density="mdpi" src="resources/android/icon/people-icon-48.png" />
-        <icon density="hdpi" src="resources/android/icon/people-icon-64.png" />
-        <icon density="xhdpi" src="resources/android/icon/people-icon-128.png" />
-        <icon density="xxhdpi" src="resources/android/icon/people-icon-128.png" />
-        <icon density="xxxhdpi" src="resources/android/icon/people-icon-128.png" />
+        <icon density="ldpi" src="resources/android/icon/film-roll-32.png" />
+        <icon density="mdpi" src="resources/android/icon/film-roll-48.png" />
+        <icon density="hdpi" src="resources/android/icon/film-roll-64.png" />
+        <icon density="xhdpi" src="resources/android/icon/film-roll-128.png" />
+        <icon density="xxhdpi" src="resources/android/icon/film-roll-256.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/film-roll-512.png" />
         <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi-screen.png" />
