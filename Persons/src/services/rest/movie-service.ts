@@ -26,7 +26,7 @@ export class MovieService {
 
         //var url = 'http://api.themoviedb.org/3/search/movie?query=&query=' + encodeURI("test") + '&api_key=5fbddf6b517048e25bc3ac1bbeafb919';
         //var url = 'https://mvcwebapi-215708.appspot.com/api/Movie?pageId='+pageId;
-        var url = 'https://localhost:44331/api/Movie/GetPagewise/'+pageId;
+        var url = 'https://mvcwebapi-215708.appspot.com/api/Movie/GetPagewise/'+pageId;
         var response = this.http.get(url,{headers:headers}).map(res => res.json());
         return response;
     }
