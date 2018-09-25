@@ -17,21 +17,6 @@ export class ListPage {
 		this.loadMovies();
 		}
 
-		doInfinite(doInfinite?){
-			console.log('Begin async operation');
-			this.pageNumber = this.pageNumber+1;
-			this.movieService.getMoviesPageWise(this.pageNumber).subscribe(
-				data=>
-				{
-					this.movies =data;
-					console.log(data);
-				});
-				
-			// for (var i = 0; i < 10; i++) {
-			// 	this.movies.push( this.movies.length );
-			//   }
-		  }
-
 		  loadMovies(infiniteScroll?){
 			this.movieService.getMoviesPageWise(this.pageNumber).subscribe(
 				data=>

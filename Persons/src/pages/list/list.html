@@ -1,15 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Persons</ion-title>
+    <ion-title>JMDB</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
 	<ion-list>	
-		<ion-item *ngFor="let movie of movies">
+		<ion-item *ngFor="let movie of movies" text-wrap>
 			<ion-icon name="film" item-left>
 			</ion-icon>
 			<p class="item-description"><b>{{movie.title}} ({{movie.releaseDate | date : 'yyyy'}}) </b></p>
-			Imdb rating: {{movie.imdbRating}}  	Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} 
+			<p>Imdb rating: {{movie.imdbRating}}</p>
+			<p>Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} </p>
 		</ion-item>
 	</ion-list>	
 	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
