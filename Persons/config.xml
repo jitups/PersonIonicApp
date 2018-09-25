@@ -21,8 +21,8 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/film-roll-32.png" />
-        <icon density="mdpi" src="resources/android/icon/film-roll-48.png" />
+        <icon density="ldpi" src="resources/android/icon/film-roll-16.png" />
+        <icon density="mdpi" src="resources/android/icon/film-roll-32.png" />
         <icon density="hdpi" src="resources/android/icon/film-roll-64.png" />
         <icon density="xhdpi" src="resources/android/icon/film-roll-128.png" />
         <icon density="xxhdpi" src="resources/android/icon/film-roll-256.png" />
