@@ -9,8 +9,10 @@
 			<ion-icon name="film" item-left>
 			</ion-icon>
 			<p class="item-description"><b>{{movie.title}} ({{movie.releaseDate | date : 'yyyy'}}) </b></p>
-			Imdb rating: {{movie.imdbRating}}<br/>
-			Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} 
+			Imdb rating: {{movie.imdbRating}}  	Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} 
 		</ion-item>
 	</ion-list>	
+	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>
