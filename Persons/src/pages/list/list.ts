@@ -11,7 +11,7 @@ export class ListPage {
 	//items = [];
 	//movies: Array<any>;
 	movies=[];
-	pageNumber=0;
+	pageNumber=1;
 	maximumPages=31;
 	constructor(public navCtrl: NavController, private movieService: MovieService) {
 		this.loadMovies();
