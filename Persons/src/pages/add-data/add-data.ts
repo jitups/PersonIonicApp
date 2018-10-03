@@ -16,6 +16,7 @@ export class AddDataPage {
   totalIncome = 0;
   totalExpense = 0;
   balance = 0;
+  totalRows = 0;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -39,10 +40,10 @@ export class AddDataPage {
         db.executeSql('CREATE TABLE IF NOT EXISTS expense(rowid INTEGER PRIMARY KEY, date TEXT, type TEXT, description TEXT, amount INT)')
         .then(res => console.log('Executed SQL'))
         .catch(e => console.log(e));
-        this.toast.show('Fetching all the record','5000','center')
-        db.executeSql('SELECT * FROM expense ORDER BY rowid DESC')
+        db.executeSql('SELECT * FROM expense ORDER BY rowid DESC',[])
         .then(res => {
           this.expenses = [];
+          this.totalRows = res.rows.length;
           for(var i=0; i<res.rows.length; i++) {
             this.expenses.push({rowid:res.rows.item(i).rowid,date:res.rows.item(i).date,type:res.rows.item(i).type,description:res.rows.item(i).description,amount:res.rows.item(i).amount})
           }
@@ -52,29 +53,29 @@ export class AddDataPage {
           this.toast.show(JSON.stringify(e),'5000','center');
         });
 
-        this.toast.show('Fetching all income','5000','center')
-        db.executeSql('SELECT SUM(amount) AS totalIncome FROM expense WHERE type="Income"')
-        .then(res => {
-          if(res.rows.length>0) {
-            this.totalIncome = parseInt(res.rows.item(0).totalIncome);
-            this.balance = this.totalIncome-this.totalExpense;
-          }
-        })
-        .catch(e => console.log(e));
-        this.toast.show('Total income: ' + this.totalIncome,'5000','center')
-        db.executeSql('SELECT SUM(amount) AS totalExpense FROM expense WHERE type="Expense"')
-        .then(res => {
-          if(res.rows.length>0) {
-            this.totalExpense = parseInt(res.rows.item(0).totalExpense);
-            this.balance = this.totalIncome-this.totalExpense;
-          }
-        })
-      }).catch(e => console.log(e));
+        //this.toast.show('Fetching all income','5000','center');
+        // db.executeSql('SELECT SUM(amount) AS totalIncome FROM expense WHERE type="Income"')
+        // .then(res => {
+        //   if(res.rows.length>0) {
+        //     this.totalIncome = parseInt(res.rows.item(0).totalIncome);
+        //     this.balance = this.totalIncome-this.totalExpense;
+        //   }
+        // })
+        //.catch(e => console.log(e));
+        // this.toast.show('Total income: ' + this.totalIncome,'5000','center');
+        // db.executeSql('SELECT SUM(amount) AS totalExpense FROM expense WHERE type="Expense"')
+        // .then(res => {
+        //   if(res.rows.length>0) {
+        //     this.totalExpense = parseInt(res.rows.item(0).totalExpense);
+        //     this.balance = this.totalIncome-this.totalExpense;
+        //   }
+        // })
+      })
+      .catch(e => console.log(e));
     }
 
   saveData() {
     console.log('in save data J');
-    this.toast.show('Saving data','5000','center');
     this.sqlite.create({
       name: 'ionicdb.db',
       location: 'default'
@@ -82,11 +83,9 @@ export class AddDataPage {
       db.executeSql('INSERT INTO expense VALUES(NULL,?,?,?,?)',[this.data.date,this.data.type,this.data.description,this.data.amount])
         .then(res => {
           console.log(res);
-          this.toast.show('Data saved', '5000', 'center').subscribe(
-            toast => {
-              this.navCtrl.popToRoot();
-            }
-          );
+          this.toast.show('Executin select ', '5000', 'center');
+          this.getData();
+          this.toast.show('Data saved : ' + this.totalRows, '5000', 'center');
         })
         .catch(e => {
           console.log(e + ' <=J');//JSON.stringify(e) , best way to check the error - Jitu
