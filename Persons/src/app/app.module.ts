@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { SQLite } from '@ionic-native/sqlite';
+import { Toast } from '@ionic-native/toast';
+
 import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
 import { InfoPage } from '../pages/info/info';
@@ -31,7 +34,9 @@ import { MovieService } from '../services/rest/movie-service';
     StatusBar,
     SplashScreen,
     MovieService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SQLite,
+    Toast
   ]
 })
 export class AppModule {}

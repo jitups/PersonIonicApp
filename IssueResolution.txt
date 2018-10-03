@@ -16,3 +16,9 @@ ionic cordova platform add android
 npm install
 ionic serve -> To see if everything is working as it should
 ionic cordova run android -l -c -s
+
+
+to avoid "corova not available" error
+To use it you add the platform "ionic cordova platform add browser"
+And then you run "ionic cordova run browser"
+

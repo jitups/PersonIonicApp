@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MovieService } from '../../services/rest/movie-service';
 import { InfoPage } from '../info/info';
+import { AddDataPage } from '../add-data/add-data'
 
 @Component({
   selector: 'page-list',
@@ -38,14 +39,20 @@ export class ListPage {
 		 
 			if (this.pageNumber === this.maximumPages) {
 			  infiniteScroll.enable(false);
-			}
+				}
 		  }
 	
-	selectMovie(event, movie) {
-		console.log(movie);  
-		this.navCtrl.push(InfoPage, {
-			movie: movie
-		});
-	}	 
+		selectMovie(event, movie) {
+			console.log(movie);  
+			this.navCtrl.push(InfoPage, {
+				movie: movie
+			});
+		}	 
+
+		
+		navigateToOtherScreen(){
+			console.log('clicked');
+			this.navCtrl.push('AddDataPage');
+		};
 
 }
