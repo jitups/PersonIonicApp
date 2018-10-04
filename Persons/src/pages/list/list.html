@@ -4,6 +4,7 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
+		<ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl"></ion-searchbar>
 	<ion-list>	
 		<ion-item *ngFor="let movie of movies" text-wrap>
 			<ion-icon name="film" item-left>
@@ -16,7 +17,4 @@
 	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
 		<ion-infinite-scroll-content></ion-infinite-scroll-content>
 	</ion-infinite-scroll>
-	<ion-fab bottom right>
-		<button ion-fab (click)="navigateToOtherScreen()">+</button>
-	</ion-fab>
 </ion-content>
