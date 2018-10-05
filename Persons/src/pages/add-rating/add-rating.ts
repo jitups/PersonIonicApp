@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Toast } from '@ionic-native/toast';
 import { MovieService } from '../../services/rest/movie-service';
 import { ListPage } from '../list/list';
@@ -19,10 +19,15 @@ import { ListPage } from '../list/list';
 export class AddRatingPage {
   movieId=0;
   rating = { userMovieRatingID:0, movieId:this.movieId, rating:""};
-  constructor(public navCtrl: NavController, public navParams: NavParams, private movieService: MovieService, private toast:Toast) {
-    this.movieId= this.navParams.get('movieId');
-    this.rating={ userMovieRatingID:0, movieId:this.movieId, rating:""};
-    console.log('ctr ' + this.movieId);
+  constructor(public navCtrl: NavController,
+             public navParams: NavParams, 
+             public platform:Platform, 
+             private movieService: MovieService, 
+             private toast:Toast) {
+                platform.registerBackButtonAction(()=>{},1);
+                this.movieId= this.navParams.get('movieId');
+                this.rating={ userMovieRatingID:0, movieId:this.movieId, rating:""};
+                console.log('ctr ' + this.movieId);
   }
 
   ionViewDidLoad() {
@@ -34,6 +39,10 @@ export class AddRatingPage {
     this.movieService.addRating(this.rating);
     console.log('added');
     this.toast.show('Rating added','5000','center');
+    this.navCtrl.push(ListPage);
+  }
+
+  cancel(){
     this.navCtrl.push(ListPage);
   }
 }

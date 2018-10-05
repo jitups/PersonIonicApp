@@ -20,6 +20,13 @@
       <ion-label>Rating</ion-label>
           <ion-input type="number" name="rating" placeholder="Type rating here" [(ngModel)]='rating.rating' minlength="1" maxlength="10" ></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Submit Rating</button>
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <ion-col><button ion-button outline (click)="cancel()">Cancel</button></ion-col>
+        <ion-col><button ion-button type="submit">Submit</button></ion-col>
+    </ion-row>
+    </ion-grid>
+    
+    
 </form>
 </ion-content>
