@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MovieService {
-    webapiurl:string= 'https://localhost:44331';//'https://mvcwebapi-215708.appspot.com'; 
+    webapiurl:string= 'https://mvcwebapi-215708.appspot.com'; // 'https://localhost:44331';//
     constructor(private http:Http) {
 
     }
