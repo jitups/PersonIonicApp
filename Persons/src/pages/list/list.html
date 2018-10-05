@@ -12,9 +12,12 @@
 			<p class="item-description"><b>{{movie.title}} ({{movie.releaseDate | date : 'yyyy'}}) </b></p>
 			<p>Imdb rating: {{movie.imdbRating}}</p>
 			<p>Jitu's Rating: {{movie.userRating}} rated on  {{movie.userRatingDate | date : format: timezone}} </p>
+			<p>Dipu's Rating: {{movie.userMovieRatings[0] ? movie.userMovieRatings[0].rating : 'N/R'}}
+				<button ion-button round *ngIf="!movie.userMovieRatings[0]" (click)="navigateToOtherScreen(movie.movieId)">Add</button></p>
 		</ion-item>
 	</ion-list>	
 	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
-		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+		<ion-infinite-scroll-content loadingSpinner="bubbles"
+		loadingText="Loading..."></ion-infinite-scroll-content>
 	</ion-infinite-scroll>
 </ion-content>

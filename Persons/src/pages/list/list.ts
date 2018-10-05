@@ -14,7 +14,7 @@ export class ListPage {
 	//items = [];
 	//movies: Array<any>;
 	searchTerm: string = '';
-  searchControl: FormControl;
+  	searchControl: FormControl;
 	movies=[];
 	pageNumber=1;
 	maximumPages=31;
@@ -28,7 +28,11 @@ export class ListPage {
 			this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
 					this.setFilteredItems();
 			});
-	}
+		}
+
+		ionViewDidEnter() {
+			this.loadMovies();
+		}
 
 	setFilteredItems() {
 
@@ -100,9 +104,10 @@ export class ListPage {
 		}	 
 
 		
-		navigateToOtherScreen(){
-			console.log('clicked');
-			this.navCtrl.push('AddDataPage');
+		navigateToOtherScreen(movieId){
+			console.log('clicked ' + movieId);
+			this.navCtrl.push('AddRatingPage',{movieId: movieId});
+			//this.navCtrl.push('AddRatingPage');
 		};
 
 }
