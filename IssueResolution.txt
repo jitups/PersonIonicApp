@@ -22,3 +22,6 @@ to avoid "corova not available" error
 To use it you add the platform "ionic cordova platform add browser"
 And then you run "ionic cordova run browser"
 
+Install the Cordova and Ionic Native plugins:
+$ ionic cordova plugin add cordova-plugin-contacts
+$ npm install --save @ionic-native/contacts <-- it creates the folder "contacts" inside "@ionic-native" folder

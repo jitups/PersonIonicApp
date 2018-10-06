@@ -56,6 +56,16 @@ export class MovieService {
         var hash = btoa(tok);
         return "Basic " + hash;
     }
+
+    copyContacts(contacts){
+        let headers = new Headers();
+        headers.append('Authorization', this.make_base_auth("webappuser", "Jitu@123"));
+        headers.append('Content-Type', 'application/json');
+        var url = this.webapiurl + '/api/Person';
+        var response = this.http.post(url,JSON.stringify(contacts),{headers:headers}).subscribe(res=>res.text());
+        console.log(response);
+        return response; 
+    }
     
    
 }
