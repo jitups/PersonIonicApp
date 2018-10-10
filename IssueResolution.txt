@@ -25,3 +25,24 @@ And then you run "ionic cordova run browser"
 Install the Cordova and Ionic Native plugins:
 $ ionic cordova plugin add cordova-plugin-contacts
 $ npm install --save @ionic-native/contacts <-- it creates the folder "contacts" inside "@ionic-native" folder
+
+
+
+To set your global username/email configuration:
+Set your username:
+git config --global user.name "FIRST_NAME LAST_NAME"
+Set your email address:
+git config --global user.email "MY_NAME@example.com"
+
+To set repository-specific username/email configuration:
+Set your username:
+git config user.name "FIRST_NAME LAST_NAME"
+Set your email address:
+git config user.email "MY_NAME@example.com"
+Verify your configuration by displaying your configuration file:
+cat .git/config
+
+To remove commit from git server 
+git reset <commitno> --hard
+    e.g. git reset 8dcb012 --hard
+git push origin master --force

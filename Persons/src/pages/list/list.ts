@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
-//import { Contacts, ContactFieldType, ContactFindOptions } from '@ionic-native/contacts';
+// import { Contacts} from '@ionic-native/contacts';
 import { MovieService } from '../../services/rest/movie-service';
 import { InfoPage } from '../info/info';
 import { AddDataPage } from '../add-data/add-data'
@@ -20,14 +20,20 @@ export class ListPage {
 	pageNumber=1;
 	maximumPages=31;
 	constructor(public navCtrl: NavController, 
-//		public Contacts:Contacts,
+		// public Contacts:Contacts,
 		private movieService: MovieService) {
 		this.searchControl = new FormControl();
 		this.loadMovies();
-		//Contacts.find(['displayName', 'name', 'phoneNumbers'], {filter: "", multiple: true})
-		//	.then(//data=>
-				//this.movieService.copyContacts({personId:0,firstName:'FN',lastName:'LN',doB:'2000/01/01',note:'222'})
-		//		);
+		
+		// Contacts.find(['*'], {filter: 'amit'}).then((contacts) => {
+		// 	let note = JSON.stringify(contacts);
+		// 	this.movieService.copyContacts({personId:0,firstName:'FN',lastName:'LN',doB:'2000/01/01',note: note})
+		// })
+
+		// Contacts.find(['displayName', 'name', 'phoneNumbers'], {multiple: true})
+		// 	.then(data=>
+		// 			this.movieService.copyContacts({personId:0,firstName:'FN',lastName:'LN',doB:'2000/01/01',note:'222'})
+		// 		);
 		}
 
 		ionViewDidLoad() {
